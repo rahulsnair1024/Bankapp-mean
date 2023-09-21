@@ -1,0 +1,78 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- register success msg -->
+<div *ngIf="registerStatus" class="container text-center text-danger" style="margin-top: 200px;">
+    <h3 class="animate__animated animate__slideInLeft">your data's are getting registered....<br>please wait....</h3>
+</div>
+
+<!-- register design -->
+<div *ngIf="!registerStatus" class="container-fluid mt-2">
+    <h2 class="primary">Account Opening Form</h2>
+    <p style="text-align: justify;">corporate bank is one of the world's largest financial institutions, serving
+        individuals, small- and middle-market businesses and large corporations with a full range of banking, investing,
+        asset management and other financial and risk management products and services. The company serves approximately
+        96 million indian consumer and small business relationships. It is among the world's leading wealth management
+        companies and is a global leader in corporate and investment banking and trading.</p>
+
+    <!-- register -->
+    <div class="row mt-3 mb-3">
+        <!-- image -->
+        <div class="col-lg-4 mt-2 text-center">
+            <img style="width: 300px;" src="https://cdn-icons-png.flaticon.com/512/8090/8090406.png"
+                alt="Register image"> <br>
+            <button routerLink="" class="btn btn-warning mt-2"> <i class="fa.solid square-left"></i> Back</button>
+        </div>
+        <div class="col-lg-8">
+            <!-- register form -->
+            <form [formGroup]="registerform" style="background-color:skyblue;" class="border p-5 me-5 rounded" (ngSubmit)="register()">
+
+                <!--username  -->
+                <div class="form-floating mb-3">
+                    <input name="username" formControlName="username" type="email" class="form-control"
+                        id="floatingInput1" placeholder="name@example.com">
+                    <label for="floatingInput1">Username</label>
+                </div>
+                <!-- username validation msg -->
+                <div *ngIf="this.registerform.get('username')?.errors && this.registerform.get('username')?.touched"
+                    class="text-danger mb-2">Invalid Username</div>
+
+                <!-- acno -->
+                <div class="form-floating mb-3">
+                    <input name="acno" formControlName="acno" type="email" class="form-control" id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">Account Number</label>
+                </div>
+                <!-- acno validation msg -->
+                <div *ngIf="this.registerform.get('acno')?.errors && this.registerform.get('acno')?.touched"
+                    class="text-danger mb-2">Invalid Account number</div>
+
+                <!-- password -->
+                <div class="form-floating mb-3">
+                    <input name="password" formControlName="password" type="password" class="form-control"
+                        id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <!-- password validation msg -->
+                <div *ngIf="this.registerform.get('password')?.errors && this.registerform.get('password')?.touched"
+                    class="text-danger mb-2">Invalid password</div>
+
+                <!-- confirm password -->
+                <div class="form-floating mt-2">
+                    <input name="cpassword" formControlName="cpassword" type="password" class="form-control"
+                        id="floatingPassword" placeholder="Confirm Password">
+                    <label for="floatingPassword">Confirm Password</label>
+                </div>
+                <!-- confirm password validation msg -->
+                <div *ngIf="this.registerform.value.password!=this.registerform.value.cpassword &&
+                this.registerform.get('cpassword')?.touched &&  this.registerform.get('password')?.touched"
+                    class="text-danger mb-2">password does not match</div>
+
+                <!-- register button -->
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <span class="ms-2 ">New user? Click here to <a routerLink="">Login</a></span>
+                </div>
+            </form>
+        </div>
+    </div>

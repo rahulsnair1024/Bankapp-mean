@@ -1,0 +1,50 @@
+<div class="container-fluid ms-3 mt-5">
+    <h2><b>Transactions</b></h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, suscipit adipisci explicabo debitis odio sequi
+        iusto a voluptatum amet nemo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fugit reprehenderit,
+        maxime doloribus qui et odit voluptatum aut at distinctio inventore similique fugiat, corporis, accusantium
+        nobis nam placeat iste ab!</p>
+</div>
+
+<div>
+    <h3 style="margin-left: 10px;"><b>Transaction History</b></h3>
+
+    <form>
+        <label style="margin-left: 10px;">Search By:</label>
+        <input class="ms-3" id="search" type="text" (keyup)="filter($event)"  placeholder="Transaction Type">
+        <button style="width:100px;text-align: start; margin-left: 60px;"
+            class="btn btn-success border border-warning " (click)="generatePDF()">Export</button>
+    </form>
+    <div>
+
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+            }
+        </style>
+
+
+        <table style="width:90%; margin-left:30px; margin-top:30px; border: 2px solid black;">
+            <thead>
+                <tr>
+                    <th>sl.no</th>
+                    <th>Transaction type</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of alltransactions | search:searchterm:'type';let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{transaction.type}}</td>
+                    <td>{{transaction.acno}}</td>
+                    <td>{{transaction. toAcno}}</td>
+                    <td>{{transaction.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

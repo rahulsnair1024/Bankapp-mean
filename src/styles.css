@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Caprasimo&family=Comfortaa&family=Dancing+Script:wght@400;600&family=Lato:wght@300&family=Open+Sans:ital,wght@0,600;1,500&family=Poppins:ital,wght@0,500;1,100;1,300;1,400&family=Roboto:ital,wght@0,400;0,500;1,100;1,400&family=Rubik+Gemstones&family=Rubik:wght@500&family=Solway&family=Ysabeau+SC:wght@100;200;300;500&display=swap');
+
+
+  body{
+    font-family: 'Solway', serif;
+    overflow-x: hidden;
+    
+  }
